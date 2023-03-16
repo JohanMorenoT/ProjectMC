@@ -1,0 +1,138 @@
+{% extends 'social/layout.html' %}
+{% load humanize%}
+{% block content %}
+{% load static %}
+
+<!--=============================================================-->
+<!-- BIENVENIDA -->
+<!--=============================================================-->
+<!--
+<div class="imagenI">
+    <section class="textos-intro">
+        <h1>BIENVENIDOS A MI CULTIVO</h1>
+        <h2>PROGRESA</h2>
+    </section>
+    <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+            style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                style="stroke: none; fill: #fff;"></path>
+    </svg></div>
+</div>
+-->
+<!--=============================================================-->
+<!-- INTRO -->
+<!--=============================================================-->
+<br><br>
+    <section class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="text-uppercase h6">Proyecto Web</h2>
+                    <h3 class="text-capitalize text-success">Mi Cultivo Progresa</h3>
+                    <p class="text-muted">Productos del campo, 100% por manos del campo. <br>Mi cultivo Progresa busca ser una solución practica para poder vender productos del campo sin intervención de terceros.</p>
+                </div>
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+            
+                        <div class="carousel-item active">
+                            <img src="{% static 'img/imagen1.jpg' %}" class="d-block w-100" alt="imagen1.jpg">
+                        </div>
+            
+                        <div class="carousel-item">
+                            <img src="{% static 'img/imagen2.jpg' %}" class="d-block w-100" alt="imagen2.jpg">
+                        </div>
+            
+                        <div class="carousel-item">
+                            <img src="{% static 'img/imagen3.jpg' %}" class="d-block w-100" alt="imagen3.jpg">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+            </div>
+        </div>
+    </section>
+    <br><br>
+
+
+    <br><br><br>
+
+
+<!--=============================================================-->
+<!-- EQUIPO -->
+<!--=============================================================-->
+
+    <section class="container-fluid">
+        <div class="row w-75 mx-auto  servicio-fila">
+            <h2 class="text-center text-success fs-1 border-top border-2">Equipo de Trabajo</h2>
+            <div class="col-lg-6 col-md-12 col-sd-12 my-5 icono-wrap" id="fila1">
+                <img src="{% static 'img/descarga1.jpg' %}" alt="imagen1" width="190" height="160">
+                <h3 class="fs-5 mt-4 px-4 pb-1"><b> Proposito</b></h3>
+                <p class="px-4">Promover la ayuda para que los campesinos puedan vender sus productos del campo de forma segura y sin pagos a terceros.</p>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sd-12 my-5 icono-wrap">
+                <img src="{% static 'img/descarga2.jpg' %}" alt="imagen1" width="190" height="160">
+                <h3 class="fs-5 mt-4 px-4 pb-1"><b> Alcance</b></h3>
+                <p class="px-4">Tenemos planeado que esta página esté en función por lo menos un año, si tenemos el apoyo de la comunidad esta página recibirá soporte por mucho tiempo más del estimado.</p>
+            </div>
+        </div>
+        <div class="row w-75 mx-auto  servicio-fila" id="fila2">
+            <div class="col-lg-6 col-md-12 col-sd-12 my-5 icono-wrap">
+                <img src="{% static 'img/descarga4.jpg' %}" alt="imagen1" width="190" height="160">
+                <h3 class="fs-5 mt-4 px-4 pb-1"><b> Equipo</b></h3>
+                <p class="px-4">El equipo de trabajo actualmente está conformado por 4 aprendices, que a pesar de las dificultades siguen aprendiendo y mejorando sus habilidades.</p>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sd-12 my-5 icono-wrap">
+                <img src="{% static 'img/descarga3.jpg' %}" alt="imagen1" width="190" height="160">
+                <h3 class="fs-5 mt-4 px-4 pb-1"><b> Objetivo</b></h3>
+                <p class="px-4"> Basado en lo anterior, nuestro objetivo es brindar apoyo por medio de estos espacios tecnológicos para que los campesinos promueban sus propios productos y sacar ganancias de ellos.</p>
+            </div>
+        </div>
+ 
+    </section>
+
+<!--========================================================== -->
+<!--UBICACIÓN-->
+<!--========================================================== -->
+
+<div id="local" class="border-top border-bottom border-2">
+    <div class="mapa"></div>
+    <div>
+        <div class="wrapper">
+            <h2>Ubicados En <span class="text-success"> Santander de Quilichao</span></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi porro rem temporibus ipsam illo! At vel soluta id architecto impedit nisi libero sapiente consequatur possimus repellendus, laudantium ipsum nam modi!</p>
+            <section class="d-flex" id="numeros-local">
+                <div>
+                    <p class="text-success">10 meses</p>
+                    <p>De trabajo</p>
+                </div>
+                <div>
+                    <p class="text-success">100%</p>
+                    <p>Aprobado</p>
+                </div>
+                <div>
+                    <p class="text-success">28 °C</p>
+                    <p>Temperatura</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

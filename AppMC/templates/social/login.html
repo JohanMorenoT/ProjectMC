@@ -1,0 +1,29 @@
+{% extends 'social/layout.html' %}
+
+{% block content %}
+
+
+<form class="formulario " method="post">
+    <br>
+    <h1>Login</h1>
+    <div class="contenedor ">
+         
+		{% csrf_token %}
+		{{ form.as_p }}
+	
+		<button type="submit" id="submit">Login</button>
+         
+    </div>
+        
+         <br><br>
+         <p>¿No tienes una cuenta? <a class="link" href="{% url 'register' %}">Registrate </a></p>
+
+         <div id="iconos" class="text-center fs-4">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>  
+        </div>
+     </div>
+    </form>
+
+{% endblock %}
