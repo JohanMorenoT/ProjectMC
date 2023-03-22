@@ -29,20 +29,7 @@
 		  </button>
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-			  <li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				  Options
-				</a>
-				<ul class="dropdown-menu">
-					{% if request.user.is_authenticated %}
-					<li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-					{% else %}
-					<li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
-					<li><hr class="dropdown-divider"></li>
-					<li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
-					{% endif %}
-				</ul>
-			  </li>
+			  
 			  {% if request.user.is_authenticated %}
 			  <li class="nav-item">
 				<a class="nav-link active" aria-current="page" href="{% url 'profile' request.user.username %}">Profile</a>
@@ -52,6 +39,22 @@
 			  <li class="nav-item">
 				<a class="nav-link active" aria-current="page" href="{% url 'feed' %}">Products</a>
 			  </li>
+			</ul>
+			<ul class="navbar-nav  mb-2 mb-lg-0">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  Options
+					</a>
+					<ul class="dropdown-menu">
+						{% if request.user.is_authenticated %}
+						<li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+						{% else %}
+						<li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+						{% endif %}
+					</ul>
+				  </li>
 			</ul>
 		  </div>
 		</div>
