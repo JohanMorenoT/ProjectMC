@@ -29,7 +29,7 @@ header {
 .imagenI {
     width: 100%;
     height: 600px;
-    background: url(img/ImagenF.jpg);  
+    background: url(../img/ImagenF.jpg);  
     background-size: cover;
     background-attachment: fixed;
     position: relative;
@@ -46,7 +46,7 @@ header {
 .imagen1 {
     width: 100%;
     height: 600px;
-    background: url(img/ImagenF3.jpg);  
+    background: url(../img/ImagenF3.jpg);  
     background-size: cover;
     background-attachment: fixed;
     position: relative;
@@ -202,4 +202,56 @@ footer p{
         flex-wrap: wrap;
         justify-content: center !important;
     }
+}
+
+/*=========================FORMULARIOS================================*/
+
+form {
+    margin: 0;
+    padding: 10px;
+    font-size: 1rem;
+}
+input {
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  border-bottom: 2px solid #e0e0e0;
+  outline: 0;
+  background: #ffffff;
+  padding: 20px 0 4px;
+  margin: 0 0 20px;
+  color: #000000;
+}
+input:focus {
+  border-color: #000000;
+  color: #000000;
+}
+textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #D3D8DC;
+  outline: 0;
+  background: #fffcfc;
+  padding: 20px 0 4px;
+  margin: 0 0 20px;
+  color: #b3b3b3;
+}
+textarea:focus {
+  border-color: #7A9D96;
+  color: #2C3238;
+}
+button#submit {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  background: #00c458;
+  color: #e9e9e9;
+  border: 0;
+  border-radius: 4px;
+  opacity: .8;
+  transition: .35s linear;
+}
+
+button#submit:hover {
+  opacity: 1;
 }

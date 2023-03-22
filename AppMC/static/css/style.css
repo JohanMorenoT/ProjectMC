@@ -4,12 +4,7 @@ body{
 	font-family: 'Varela Round', Helvetica, Arial, serif;
 }
 /* Global Styles*/
-h1{
 
-}
-
-h2{
-}
 
 h5{
 	font-size: 1rem;
@@ -59,9 +54,7 @@ nav.main ul{
 	list-style: none;
 }
 
-#logo{
-	flex: 2 1 40rem;
-}
+
 
 /* -----*/
 
@@ -81,39 +74,6 @@ a{
 }
 
 /* NAVIGATION BAR */
-.second-nav{
-	display: flex;
-	padding: 15px 30px;
-}
-
-.second-nav .feed{
-	flex: 1 1 30px;
-}
-
-.second-nav .feed:hover{
-	flex: 1 1 30px;
-	color: grey;
-}
-
-.second-nav .profile{
-	flex: 1 1 30px;
-}
-
-.second-nav .profile:hover{
-	flex: 1 1 30px;
-	color: grey;
-}
-
-.second-nav .new{
-	flex: 6 1 5rem;
-	text-align: right;
-	text-transform: uppercase;
-  	color: #7A9D96;
-}
-
-.second-nav .new:hover{
-	color: grey;
-}
 
 /* Article */
 
