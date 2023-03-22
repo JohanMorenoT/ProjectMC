@@ -215,9 +215,9 @@ input {
   width: 100%;
   border: 0;
   border-radius: 10px;
-  border-bottom: 2px solid #c9c9c9;
+  border-bottom: 2px solid #e0e0e0;
   outline: 0;
-  background: #bbbbbb;
+  background: #ffffff;
   padding: 20px 0 4px;
   margin: 0 0 20px;
   color: #000000;
@@ -231,10 +231,10 @@ textarea {
   border: 0;
   border-bottom: 2px solid #D3D8DC;
   outline: 0;
-  background: #9c9c9c;
+  background: #fffcfc;
   padding: 20px 0 4px;
   margin: 0 0 20px;
-  color: #777B7E;
+  color: #b3b3b3;
 }
 textarea:focus {
   border-color: #7A9D96;
@@ -245,7 +245,7 @@ button#submit {
   padding: 20px 0;
   text-align: center;
   background: #00c458;
-  color: #f7f7f7;
+  color: #e9e9e9;
   border: 0;
   border-radius: 4px;
   opacity: .8;
