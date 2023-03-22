@@ -237,8 +237,8 @@ textarea {
   color: #b3b3b3;
 }
 textarea:focus {
-  border-color: #7A9D96;
-  color: #2C3238;
+  border-color: #0ba364;
+  color: #afafaf;
 }
 button#submit {
   width: 100%;
