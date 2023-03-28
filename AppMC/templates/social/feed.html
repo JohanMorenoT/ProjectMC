@@ -1,4 +1,5 @@
 {% extends 'social/layout.html' %}
+{% load static %}
 {% load humanize %}
 {% block content %}
 
@@ -21,13 +22,14 @@
             <div>
                 <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
                 <i class="clock"></i>
-                <time data-time="#">{{ post.timestamp|naturaltime }}</time>
-                <div class="post">{{ post.content }}</div>
+                {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.name }}">
+                {% endif %}
                 <li>
+                    <time data-time="#">{{ post.timestamp|naturaltime }}</time>
                     <h3>{{ post.name }}</h3>
                     <p>{{ post.description }}</p>
                     <p>Precio: {{ post.price }}</p>
-                    <img src="{{ post.image }}" alt="{{ post.name }}">
                     
                 </li>
             </div>
@@ -37,5 +39,25 @@
 </div>
 
 {% endfor %}
+
+<!--<div class="row">
+    {% for post in posts %}
+    <div class="col-lg-4">
+        <img class="thumbnail justify-content-center" width="80%" src="{{ post.image.url }}" alt="{{ post.name }}">
+        <div class="box-element product">
+            <h4 class="text-center"><strong>{{post.name}}</strong></h4>
+            <p class="text-center">{{ post.description }}</p>
+            <hr>
+
+            <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Agregar Carrito</button>
+            
+            <a class="btn btn-outline-success" href="#">Ver</a>
+            <h4 style="display: inline-block; float: right"><strong>${{post.price}}</strong></h4>
+
+        </div>
+        <br>
+    </div>
+    {% endfor %}
+</div>-->
 
 {% endblock %}
