@@ -14,32 +14,28 @@
 </div>
 <br>
 
-{% for post in posts %}
+
 <div class="container">
-    <article>
-        <div class="container-article">
-            <img src="{{ post.user.profile.image.url }}">
-            <div>
-                <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
-                <i class="clock"></i>
-                {% if post.image %}
-                <img src="{{ post.image.url }}" alt="{{ post.name }}">
-                {% endif %}
-                <li>
-                    <time data-time="#">{{ post.timestamp|naturaltime }}</time>
-                    <h3>{{ post.name }}</h3>
-                    <p>{{ post.description }}</p>
-                    <p>Precio: {{ post.price }}</p>
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-lg-4 shadow p-3 mb-5 bg-white rounded" >
+
+                <div class="box-element product">
+                    {% if post.image %}
+                    <img class="thumbnail" src="{{ post.image.url }}" alt="{{ post.name }}" width="90%" height="80%">
+                    {% endif %}
+                    <h4><strong>{{post.name}}</strong></h4>
+                    <hr>
                     
-                </li>
+                    <a class="btn btn-outline-success" href="#">Ver Producto</a>
+                    <h4 style="display: inline-block; justify-content: end;"><strong>${{post.price}}</strong></h4>
+                    <hr>
+                    <time data-time="#">{{ post.timestamp|naturaltime }}</time>
+                </div>
+                <br>
             </div>
+        {% endfor %}
         </div>
-        <hr>
-    </article>
 </div>
-
-{% endfor %}
-
-
 
 {% endblock %}

@@ -70,3 +70,4 @@ def unfollow(request, username):
 	rel.delete()
 	messages.success(request, f'Ya no sigues a {username}')
 	return redirect('feed')
+

@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='usuario.png')
+    image = models.ImageField(default='staic/usuario.png')
 
     def __str__(self):
         return f'Perfil de {self.user.username}'
@@ -36,7 +36,13 @@ class Post(models.Model):
     def __str__(self):
         return self.name
     
-    
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url  
 
 class Relationship(models.Model):
 	from_user = models.ForeignKey(User, related_name='relationships', on_delete=models.CASCADE)
