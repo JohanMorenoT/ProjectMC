@@ -1,15 +1,26 @@
 {% extends 'social/layout.html' %}
-
+{% load static %}
 {% block content %}
 
 <br><br>
 <div class="container">
-	<form method="post">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<button type="submit" class="post" id="" >Post!</button>
-		
-	</form>
-</div>
 
+</div>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style3.css' %}">
+  </head>
+  <body>
+    <div class="login-box">
+		<h2>Publicar Producto</h2>
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" class="post" id="" >Post!</button>
+			
+		</form>
+      <p>No tienes una cuenta?: <a href="{% url 'register' %}">Register</a></p>
+    </div>
+  </body>
+</html>
 {% endblock %}
