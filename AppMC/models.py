@@ -23,14 +23,19 @@ class Profile(models.Model):
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    name = models.CharField(max_length=200)
     timestamp = models.DateTimeField(default=timezone.now)
-    content = models.TextField()
+    description = models.TextField()
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    digital = models.BooleanField(default=False,null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
 
     class Meta:
         ordering = ['-timestamp']
 
     def __str__(self):
-        return f'{self.user.username}: {self.content}'
+        return self.name
+    
     
 
 class Relationship(models.Model):
