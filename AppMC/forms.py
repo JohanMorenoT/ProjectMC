@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Post
+from .models import Post, Profile
 
 class UserRegisterForm(UserCreationForm):
 	email = forms.EmailField()
@@ -12,7 +12,11 @@ class UserRegisterForm(UserCreationForm):
 		model = User
 		fields = ['username', 'email', 'password1', 'password2']
 		help_texts = {k:"" for k in fields }
-
+  
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['nombres', 'apellidos', 'telefono', 'direccion']
  
 class PostForm(forms.ModelForm):
 	description = forms.CharField(label='', widget=forms.Textarea(attrs={'rows':2, 'placeholder': 'Haz una descripción del producto.'}), required=True)

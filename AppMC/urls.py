@@ -1,4 +1,5 @@
 from django.urls import path
+from .views import edit_profile
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -8,6 +9,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('feed/', views.feed, name='feed'),
     path('profile/', views.profile, name='profile'),
+    path('perfil/editar/', edit_profile, name='editar_perfil'),
     path('profile/<str:username>/', views.profile, name='profile'),
     path('register/', views.register, name='register'),
     path('login/', LoginView.as_view(template_name='social/login.html'), name='login'),

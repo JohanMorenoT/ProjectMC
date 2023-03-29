@@ -16,11 +16,16 @@
 			<button type="button" class="boton-portada">
 				<i class="far fa-image"></i> Cambiar fondo de perfil
 			</button>
+			
 		</div>
 	</div>
+	<br>
+	<a href="{% url 'editar_perfil' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar Perfil</a>
+	<br>
 	<div class="perfil-usuario-body">
 		<div class="perfil-usuario-bio">
 			<h3 class="titulo">{{ user.username }}</h3>
+			<h3 class="titulo">{{ user.profile.nombres }} {{ user.profile.apellidos}} </h3>
 			<div class="follow">
 				<div>
 					<h5>Post</h5>
@@ -39,15 +44,11 @@
 		</div>
 		<div class="perfil-usuario-footer">
 			<ul class="lista-datos">
-				<li><i class="icono fas fa-map-signs"></i> Direccion de usuario:</li>
-				<li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
-				<li><i class="icono fas fa-briefcase"></i> Trabaja en.</li>
-				<li><i class="icono fas fa-building"></i> Cargo</li>
+				<li><i class="icono fas fa-map-signs"></i> Direccion de usuario:  </li>
+				<li><i class="icono fas fa-phone-alt"></i> Telefono: {{ user.profile.telefono }}</li>
 			</ul>
 			<ul class="lista-datos">
-				<li><i class="icono fas fa-map-marker-alt"></i> Ubicacion.</li>
-				<li><i class="icono fas fa-calendar-alt"></i> Fecha nacimiento.</li>
-				<li><i class="icono fas fa-user-check"></i> Registro.</li>
+				<li><i class="icono fas fa-map-marker-alt"></i> Ubicacion: {{ user.profile.direccion }}</li>
 				<li><i class="icono fas fa-share-alt"></i> Redes sociales.</li>
 			</ul>
 		</div>
