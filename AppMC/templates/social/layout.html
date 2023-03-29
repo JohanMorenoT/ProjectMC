@@ -38,11 +38,12 @@
 			<ul class="navbar-nav mb-2 mb-lg-0">
 				<li class="nav-item dropdown">
 				  <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Options
+					Menú
 				  </a>
 				  <ul class="dropdown-menu">
 					  {% if request.user.is_authenticated %}
 					  <li><a class="dropdown-item" href="{% url 'profile' request.user.username %}">Ver Perfil</a></li>
+					  <li><a class="dropdown-item" href="#">Options</a></li>
 					  <li><hr class="dropdown-divider"></li>
 					  <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
 					  {% else %}

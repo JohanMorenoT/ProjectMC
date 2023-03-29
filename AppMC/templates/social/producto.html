@@ -1,23 +1,18 @@
-{% for post in posts %}
-<div class="container">
-    <article>
-        <div class="container-article">
-            <img src="{{ post.user.profile.image.url }}">
-            <div>
-                <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{ post.user.username }}</a></h2>
-                <i class="clock"></i>
-                {% if post.image %}
-                <img src="{{ post.image.url }}" alt="{{ post.name }}">
-                {% endif %}
-                <li>
-                    <time data-time="#">{{ post.timestamp|naturaltime }}</time>
-                    <h3>{{ post.name }}</h3>
-                    <p>{{ post.description }}</p>
-                    <p>Precio: {{ post.price }}</p>
-                    
-                </li>
-            </div>
-        </div>
-        <hr>
-    </article>
+{% extends 'social/layout.html' %}
+{% load humanize %}
+{% load static %}
+{% block content %}
+
+
+<h1>{{ post.nombre }}</h1>
+<div class="producto-detalle">
+    {% if post.image %}
+    <img src="{{ post.image.url }}" alt="{{ post.name }}">
+    {% endif %}
+    <div class="informacion">
+        <p class="precio">${{ post.price }}</p>
+        <p class="descripcion">{{ post.description }}</p>
+    </div>
 </div>
+
+{% endblock content %}

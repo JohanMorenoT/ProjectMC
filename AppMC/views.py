@@ -9,6 +9,10 @@ from django.contrib.auth.decorators import login_required
 def index(request):
      return render(request, 'social/index.html')
 
+def detalle(request):
+    producto = get_object_or_404(post, pk=post.codigo)
+    return render(request, 'social/producto.html', {'producto': producto})
+
 def feed(request):
     posts = Post.objects.all()
     context = { 'posts': posts}
