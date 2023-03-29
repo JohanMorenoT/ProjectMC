@@ -22,6 +22,7 @@ class Profile(models.Model):
         return User.objects.filter(id__in=user_ids)
 
 class Post(models.Model):
+    post_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
     name = models.CharField(max_length=200)
     timestamp = models.DateTimeField(default=timezone.now)

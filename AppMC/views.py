@@ -9,10 +9,6 @@ from django.contrib.auth.decorators import login_required
 def index(request):
      return render(request, 'social/index.html')
 
-def detalle(request):
-    producto = get_object_or_404(post, pk=post.codigo)
-    return render(request, 'social/producto.html', {'producto': producto})
-
 def feed(request):
     posts = Post.objects.all()
     context = { 'posts': posts}
@@ -46,6 +42,10 @@ def post(request):
     else:
         form = PostForm()
     return render(request, 'social/post.html', {'form' : form})
+
+def detalle_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    return render(request, 'social/detalle_post.html', {'post': post})
 
 def profile(request, username=None):
     current_user = request.user

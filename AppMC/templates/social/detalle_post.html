@@ -1,0 +1,40 @@
+{% extends 'social/layout.html' %}
+{% load humanize %}
+{% load static %}
+{% block content %}
+
+
+<h1>{{ post.nombre }}</h1>
+<div class="producto-detalle">
+    {% if post.image %}
+    <img src="{{ post.image.url }}" alt="{{ post.name }}">
+    {% endif %}
+    <div class="informacion">
+        <p class="precio">${{ post.price }}</p>
+        <p class="descripcion">{{ post.description }}</p>
+    </div>
+</div>
+
+<h1>{{ post.name }}</h1>
+    <div class="post-detalle">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.name }}">
+        {% endif %}
+        <div class="informacion">
+            <p class="precio">${{ post.price }}</p>
+            <p class="descripcion">{{ post.description }}</p>
+            {% if post.digital %}
+                <p class="digital">Este producto es digital</p>
+            {% else %}
+                <p class="stock">Stock disponible: {{ post.stock }}</p>
+                <form method="post" action="{% url 'agregar_al_carrito' post.post_id %}">
+                    {% csrf_token %}
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="{{ post.stock }}" required>
+                    <button type="submit">Agregar al carrito</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}
