@@ -17,6 +17,17 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['nombres', 'apellidos', 'telefono', 'direccion']
+	
+class ProfileImageForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image']
+        labels = {
+            'image': 'Imagen de perfil'
+        }
+        widgets = {
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control-file'})
+        }
  
 class PostForm(forms.ModelForm):
 	description = forms.CharField(label='', widget=forms.Textarea(attrs={'rows':2, 'placeholder': 'Haz una descripción del producto.'}), required=True)

@@ -33,13 +33,21 @@ class Post(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
     digital = models.BooleanField(default=False,null=True, blank=True)
-    image = models.ImageField(upload_to="productos", null=True, blank=True)
+    image = models.ImageField(upload_to="productos",null=True,blank=True)
 
     class Meta:
         ordering = ['-timestamp']
 
     def __str__(self):
         return self.name
+    
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
     
 
 class Relationship(models.Model):

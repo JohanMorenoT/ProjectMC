@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
-from .forms import UserRegisterForm, PostForm, ProfileForm
+from .forms import UserRegisterForm, PostForm, ProfileForm, ProfileImageForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -32,7 +32,7 @@ def register(request):
 def post(request):
     current_user = get_object_or_404(User, pk=request.user.pk)
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.user = current_user
@@ -69,6 +69,17 @@ def edit_profile(request):
         form = ProfileForm(instance=profile)
     context = {'form': form}
     return render(request, 'social/edit_profile.html', context)
+
+@login_required
+def profileimage(request):
+    if request.method == 'POST':
+        form = ProfileImageForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileImageForm(instance=request.user.profile)
+    return render(request, 'social/edit_image.html', {'form': form})
 
 def follow(request, username):
 	current_user = request.user

@@ -10,7 +10,7 @@
 			<div class="perfil-usuario-avatar">
 				<img src="{{ user.profile.image.url }}" alt="img-avatar">
 				<button type="button" class="boton-avatar">
-					<i class="far fa-image"></i>
+					<a href="{% url 'editar_imagen' %}"><i class="bi bi-nut-fill text-dark"></i></a>
 				</button>
 			</div>
 			<button type="button" class="boton-portada">
@@ -20,12 +20,13 @@
 		</div>
 	</div>
 	<br>
-	<a href="{% url 'editar_perfil' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar Perfil</a>
+	{% if request.user.is_authenticated %}
+	<a href="{% url 'editar_perfil' %}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Editar Perfil</a>
+	{% endif %}
 	<br>
 	<div class="perfil-usuario-body">
 		<div class="perfil-usuario-bio">
 			<h3 class="titulo">{{ user.username }}</h3>
-			<h3 class="titulo">{{ user.profile.nombres }} {{ user.profile.apellidos}} </h3>
 			<div class="follow">
 				<div>
 					<h5>Post</h5>
@@ -44,7 +45,8 @@
 		</div>
 		<div class="perfil-usuario-footer">
 			<ul class="lista-datos">
-				<li><i class="icono fas fa-map-signs"></i> Direccion de usuario:  </li>
+				<li><i class="bi bi-person-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombres: {{ user.profile.nombres }} {{ user.profile.apellidos }}</li>
+				<li><i class="icono fas fa-map-signs"></i> Direccion de usuario: {{ user.email }} </li>
 				<li><i class="icono fas fa-phone-alt"></i> Telefono: {{ user.profile.telefono }}</li>
 			</ul>
 			<ul class="lista-datos">
@@ -57,11 +59,15 @@
 			<a href="" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
 			<a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
 		</div>
+		<br><br>
+		<div class="perfil-usuario-footer">
+			{{ block.super }}
+		</div>
 	</div>
 </section>
 </div>
 
 
 
-{{ block.super }}
+
 {% endblock %}
