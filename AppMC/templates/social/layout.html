@@ -20,24 +20,24 @@
 <!--=============================================================-->
 
 <header>
-	<nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary ">
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark bg-body-tertiary ">
 		<div class="container-fluid">
 			<img src="" alt="">
-		  <a class="navbar-brand text-light" href="{% url 'index' %}">MI CULTIVO PROGRESA</a>
+		  <a class="navbar-brand" href="{% url 'index' %}">MI CULTIVO PROGRESA</a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		  </button>
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			  <li class="nav-item">
-				<a class="nav-link active text-light" aria-current="page" href="{% url 'feed' %}">Products</a>
+				<a class="nav-link active" aria-current="page" href="{% url 'feed' %}">Products</a>
 			  </li>
 			</ul>
 
 
 			<ul class="navbar-nav mb-2 mb-lg-0">
 				<li class="nav-item dropdown">
-				  <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					Options
 				  </a>
 				  <ul class="dropdown-menu">
@@ -72,7 +72,7 @@
 	<!-------------------------------------
 					Navigation Bar 
 	-------------------------------------->
-	
+
 	{% block content %}
 
 	{% endblock content %}
@@ -81,7 +81,9 @@
 <!--PIE DE PAGINA-->
 <!--========================================================== -->
 
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" id="footer0">
+    <path fill="#227035" fill-opacity="1" d="M0,64L120,58.7C240,53,480,43,720,53.3C960,64,1200,96,1320,112L1440,128L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+</svg>
 
 
 <!--========================================================== -->

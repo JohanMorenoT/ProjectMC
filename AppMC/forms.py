@@ -13,10 +13,9 @@ class UserRegisterForm(UserCreationForm):
 		fields = ['username', 'email', 'password1', 'password2']
 		help_texts = {k:"" for k in fields }
 
- 
 class PostForm(forms.ModelForm):
-	description = forms.CharField(label='', widget=forms.Textarea(attrs={'rows':2, 'placeholder': 'Haz una descripción del producto.'}), required=True)
+	content = forms.CharField(label='', widget=forms.Textarea(attrs={'rows':2, 'placeholder': '¿Qué está pasando?'}), required=True)
 
 	class Meta:
 		model = Post
-		fields = ['name','description', 'price', 'image']
+		fields = ['content']
