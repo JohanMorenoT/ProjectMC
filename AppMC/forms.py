@@ -2,12 +2,9 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Post, Profile
-<<<<<<< HEAD
 
 class SearchForm(forms.Form):
     search = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control text-success' , 'placeholder':'search'}))
-=======
->>>>>>> Feature
 
 class UserRegisterForm(UserCreationForm):
 	email = forms.EmailField()

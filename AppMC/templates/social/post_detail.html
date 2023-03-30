@@ -4,7 +4,6 @@
 {% block content %}
 
 
-<<<<<<< HEAD
 <div class="post-detail">
     <h1>{{ post.name }}</h1>
     <p>{{ post.description }}</p>
@@ -16,12 +15,10 @@
     {% endif %}
     <img src="{{ post.image.url }}" alt="{{ post.name }}">
   </div>
-=======
 <h1>{{ post.name }}</h1>
 <img src="{{ post.image.url }}" alt="{{ post.name }}">
 <p>{{ post.description }}</p>
 <p>Precio: ${{ post.price }}</p>
 <p>Disponible: {% if post.available %}Sí{% else %}No{% endif %}</p>
->>>>>>> Feature
 
 {% endblock content %}
