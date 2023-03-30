@@ -1,27 +1,55 @@
 {% extends 'social/layout.html' %}
-{% load static %}
+
 {% block content %}
 
 
 
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style3.css' %}">
-  </head>
-  <body>
-
-    <div class="login-box">
-      <h2>Sing Up</h2>
-      <form method="post">
-    
+<form class="formulario" method="post">
+    <br>
+    <h1>Registrate</h1>
+    <br>
+     <div class="container" >
         {% csrf_token %}
         {{ form.as_p }}
     
+<<<<<<< HEAD
         <button type="submit" id="submit" class="btn btn-success">Register</button>
       </form>
       <p>Ya tienes una cuenta?: <a href="{% url 'login' %}">Login</a></p>
     </div>
   </body>
 </html>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 11ffd22ecf48975dabaaffea172214e33f4d986b
+=======
+>>>>>>> 24c8f971da07e37a4035b83552fcc44098bbbe81
+=======
+>>>>>>> 24c8f971da07e37a4035b83552fcc44098bbbe81
+=======
+>>>>>>> 24c8f971da07e37a4035b83552fcc44098bbbe81
+=======
+>>>>>>> 24c8f971da07e37a4035b83552fcc44098bbbe81
+=======
+>>>>>>> 24c8f971da07e37a4035b83552fcc44098bbbe81
+=======
+>>>>>>> 24c8f971da07e37a4035b83552fcc44098bbbe81
+        <button type="submit" id="submit" class="btn btn-success">Registrarse</button>
+		<br><br><br>
+         <p>¿Ya tienes una cuenta? <a class="link" href="{% url 'login' %}">Iniciar Sesion</a></p>
+>>>>>>> abc7a4a686e55e3f8585951894c8d2948c4ca21d
 
-{% endblock content %}
+         <div id="iconos" class="text-center fs-4">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>  
+        </div>
+     </div>
+    </form>
+
+{% endblock %}
