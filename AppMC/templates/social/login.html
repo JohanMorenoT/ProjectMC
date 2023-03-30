@@ -4,6 +4,26 @@
 
 
 <<<<<<< HEAD
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style3.css' %}">
+  </head>
+  <body>
+    <div class="login-box">
+      <h2>Login</h2>
+      <form method="post">
+    
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <button type="submit" id="submit" class="btn btn-success">Login</button>
+      </form>
+      <p>No tienes una cuenta?: <a href="{% url 'register' %}">Register</a></p>
+    </div>
+  </body>
+</html>
+=======
+<<<<<<< HEAD
 <form class="formulario " method="post">
 =======
 <div class="container">
@@ -38,5 +58,6 @@
 =======
   </form>
 </div>
+>>>>>>> abc7a4a686e55e3f8585951894c8d2948c4ca21d
 
 {% endblock %}
