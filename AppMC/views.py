@@ -76,7 +76,7 @@ def profileimage(request):
         form = ProfileImageForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             form.save()
-            return redirect('profile')
+            return redirect('editar_perfil')
     else:
         form = ProfileImageForm(instance=request.user.profile)
     return render(request, 'social/edit_image.html', {'form': form})
