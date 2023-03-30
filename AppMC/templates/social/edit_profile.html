@@ -1,0 +1,27 @@
+{% extends 'social/layout.html' %}
+{% load static %}
+{% block content %}
+
+    <button type="submit" class="btn btn-primary"></button>
+  </form>
+  <html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style3.css' %}">
+  </head>
+  <body>
+    <div class="login-box">
+      <br><br>
+      <h2>Editar Perfil</h2>
+      <form method="post">
+
+        <p><a href="{% url 'editar_imagen' %}"><i class="bi bi-nut-fill text-dark"></i>Cambiar Foto</a></p>
+    
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <button type="submit" id="submit" class="btn btn-success">Guardar cambios</button>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock %}

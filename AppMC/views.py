@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
-from .forms import UserRegisterForm, PostForm
+from .forms import UserRegisterForm, PostForm, ProfileForm, ProfileImageForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -32,7 +32,7 @@ def register(request):
 def post(request):
     current_user = get_object_or_404(User, pk=request.user.pk)
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.user = current_user
@@ -43,6 +43,10 @@ def post(request):
         form = PostForm()
     return render(request, 'social/post.html', {'form' : form})
 
+def post_detail(request, post_id):
+    post = get_object_or_404(Post, post_id=post_id)
+    return render(request, 'post_detail.html', {'post': post})
+
 def profile(request, username=None):
     current_user = request.user
     if username and username != current_user.username:
@@ -52,6 +56,30 @@ def profile(request, username=None):
         posts = current_user.posts.all()
         user = current_user
     return render(request, 'social/profile.html', {'user':user, 'posts': posts, })
+
+@login_required
+def edit_profile(request):
+    profile = request.user.profile
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+        return redirect('profile')
+    else:
+        form = ProfileForm(instance=profile)
+    context = {'form': form}
+    return render(request, 'social/edit_profile.html', context)
+
+@login_required
+def profileimage(request):
+    if request.method == 'POST':
+        form = ProfileImageForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return redirect('editar_perfil')
+    else:
+        form = ProfileImageForm(instance=request.user.profile)
+    return render(request, 'social/edit_image.html', {'form': form})
 
 def follow(request, username):
 	current_user = request.user
@@ -70,3 +98,4 @@ def unfollow(request, username):
 	rel.delete()
 	messages.success(request, f'Ya no sigues a {username}')
 	return redirect('feed')
+
