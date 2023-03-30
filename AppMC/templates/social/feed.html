@@ -53,7 +53,7 @@
                     <h4><strong>{{post.name}}</strong></h4>
                     <hr>
                     
-                    <a class="btn btn-outline-success" href="{% url 'editar_imagen' %}">Detalles del producto</a>
+                    <a class="btn btn-outline-success" href="{% url 'product_detail' post.id %}">Detalles del producto</a>
                     <h4 style="display: inline-block;"><strong>${{post.price}}</strong></h4>
                     <hr>
                     <time data-time="#">{{ post.timestamp|naturaltime }}</time>

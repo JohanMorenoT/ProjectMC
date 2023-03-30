@@ -4,16 +4,10 @@
 {% block content %}
 
 
-<div class="post-detail">
-    <h1>{{ post.name }}</h1>
-    <p>{{ post.description }}</p>
-    <p>Precio: ${{ post.price }}</p>
-    {% if post.digital %}
-      <p>Producto digital</p>
-    {% else %}
-      <p>Producto físico</p>
-    {% endif %}
-    <img src="{{ post.image.url }}" alt="{{ post.name }}">
-  </div>
+<h1>{{ post.name }}</h1>
+<img src="{{ post.image.url }}" alt="{{ post.name }}">
+<p>{{ post.description }}</p>
+<p>Precio: ${{ post.price }}</p>
+<p>Disponible: {% if post.available %}Sí{% else %}No{% endif %}</p>
 
 {% endblock content %}
