@@ -1,9 +1,7 @@
 {% extends 'social/layout.html' %}
-
+{% load static %}
 {% block content %}
 
-
-<<<<<<< HEAD
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style3.css' %}">
@@ -22,42 +20,5 @@
     </div>
   </body>
 </html>
-=======
-<<<<<<< HEAD
-<form class="formulario " method="post">
-=======
-<div class="container">
-  <form class="formulario " method="post">
-    <br>
-    <h1>Login</h1>
-    <div class="contenedor ">
-         
-		{% csrf_token %}
-		{{ form.as_p }}
-	
-<<<<<<< HEAD
-		<button type="submit" id="submit">Login</button>
-=======
-		<div class="text-center">
-      <button type="submit" id="submit" class="btn btn-success">Login</button>
-    </div>
-         
-    </div>
-        
-         <br><br>
-         <p>¿No tienes una cuenta? <a class="link" href="{% url 'register' %}">Registrate </a></p>
-
-         <div id="iconos" class="text-center fs-4">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>  
-        </div>
-     </div>
-<<<<<<< HEAD
-    </form>
-=======
-  </form>
-</div>
->>>>>>> abc7a4a686e55e3f8585951894c8d2948c4ca21d
 
 {% endblock %}

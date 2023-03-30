@@ -1,0 +1,27 @@
+{% extends 'social/layout.html' %}
+{% load static %}
+{% block content %}
+
+    <button type="submit" class="btn btn-primary"></button>
+  </form>
+  <html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style3.css' %}">
+  </head>
+  <body>
+    <div class="login-box">
+      <h2>Cambiar Foto</h2>
+      <form method="post" enctype=multipart/form-data>
+        <div class="container text-center">
+          <img src="{{ user.profile.image.url }}" alt="img-avatar" width="40%">
+        </div>
+    
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <button type="submit" id="submit" class="btn btn-success">Guardar cambios</button>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock %}
