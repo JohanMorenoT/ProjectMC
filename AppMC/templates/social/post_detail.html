@@ -4,6 +4,7 @@
 {% block content %}
 
 
+<<<<<<< HEAD
 <div class="post-detail">
     <h1>{{ post.name }}</h1>
     <p>{{ post.description }}</p>
@@ -20,5 +21,42 @@
 <p>{{ post.description }}</p>
 <p>Precio: ${{ post.price }}</p>
 <p>Disponible: {% if post.available %}Sí{% else %}No{% endif %}</p>
+=======
+<br><br>
+<br><br>
+<div class="col-12 text-center">
+    <h1 class="text-capitalize text-success">Detalles del producto</h1>
+    <br>
+</div>
+<br>
+
+<br>
+<div class="container text-center">
+
+<div class="card w-75 mb-3 shadow-lg p-3 mb-5 bg-body rounded">
+  <div class="card-body">
+    <p class="username">Vendedor: @{{ post.user.username }}</p> 
+    <img src="{{ post.image.url }}" alt="{{ post.name }}">
+    <h1 class="text-success">{{ post.name }}</h1>
+    <p> </p>
+
+    <h5 class="card-title">Descripcion:</h5>
+    <p class="card-text">{{ post.description }}</p>
+
+    <h4 style="display: inline-block;"><strong>Precio: ${{post.price}}</strong></h4>
+    
+    <hr>
+    {% if request.user.is_authenticated %}
+    <a class="btn btn-outline-success" href="{% url 'profile' post.user.username %}">Contactar</a>
+		{% else %}
+    <a class="btn btn-outline-success" href="{% url 'login' %}">Contactar</a>
+		{% endif %}
+  </div>
+</div>
+
+
+
+</div>
+>>>>>>> Feature
 
 {% endblock content %}
