@@ -63,8 +63,13 @@ def post(request):
     return render(request, 'social/post.html', {'form' : form})
 
 def post_detail(request, post_id):
+<<<<<<< HEAD
     post = get_object_or_404(Post, post_id=post_id)
     return render(request, 'post_detail.html', {'post': post})
+=======
+    post = get_object_or_404(Post, pk=post_id)
+    return render(request, 'social/post_detail.html', {'post': post})
+>>>>>>> Feature
 
 def profile(request, username=None):
     current_user = request.user
