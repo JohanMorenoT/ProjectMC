@@ -3,6 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Post, Profile
 
+class SearchForm(forms.Form):
+    search = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control text-success' , 'placeholder':'search'}))
+
 class UserRegisterForm(UserCreationForm):
 	email = forms.EmailField()
 	password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)

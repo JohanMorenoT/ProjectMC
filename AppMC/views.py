@@ -4,6 +4,25 @@ from .forms import UserRegisterForm, PostForm, ProfileForm, ProfileImageForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+from .models import Post
+from .forms import SearchForm
+
+def search(request):
+    form = SearchForm(request.GET)
+    query = Q()
+    results = []
+    if form.is_valid():
+        search = form.cleaned_data.get('search')
+        category = form.cleaned_data.get('category')
+        if search:
+            query &= Q(name__icontains=search) | Q(description__icontains=search)
+        if category:
+            query &= Q(category=category)
+        results = Post.objects.filter(query)
+    context = {'form': form, 'results': results}
+    return render(request, 'search.html', context)
+
 
 # Create your views here.
 def index(request):

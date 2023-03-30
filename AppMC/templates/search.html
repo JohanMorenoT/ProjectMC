@@ -1,0 +1,44 @@
+{% extends 'social/layout.html' %}
+{% load humanize %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+
+
+<div class="container text-center">
+
+    <h1 class="text-success">Search Products</h1>
+
+    <!-- <form class="text-success " method="get" action="{% url 'search' %}"> 
+        {{ form.as_p }}
+        <button  type="submit">Search</button>
+    </form> -->
+
+    <form class="d-flex" role="search" method="get" action="{% url 'search' %}">
+
+        <input type="search" name="search" placeholder="Search products" class="form-control me-2">
+        
+
+        
+        
+            <br>
+        <button type="submit" class="btn btn-outline-success">Search</button>
+    </form>
+    {% if results %}
+        <h2 class="text-success">Results:</h2>
+        <ul>
+            {% for post in results %}
+                <img src="{{ post.image.url }}" alt="">
+                <li>{{ post.name }}</li>
+                <li>{{ post.price }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+</div>
+
+
+
+{% endblock content %}
