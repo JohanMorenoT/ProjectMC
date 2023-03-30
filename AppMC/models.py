@@ -6,11 +6,7 @@ from django.utils import timezone
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    nombres = models.CharField(max_length=50)
-    apellidos = models.CharField(max_length=100)
-    telefono = models.CharField(max_length=20)
-    direccion = models.CharField(max_length=200)
-    image = models.ImageField(default='usuario.png' ,upload_to="usuarios", null=True, blank=True)
+    image = models.ImageField(default='usuario.png')
 
     def __str__(self):
         return f'Perfil de {self.user.username}'
@@ -27,26 +23,14 @@ class Profile(models.Model):
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
-    name = models.CharField(max_length=200)
     timestamp = models.DateTimeField(default=timezone.now)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=8, decimal_places=2)
-    digital = models.BooleanField(default=False,null=True, blank=True)
-    image = models.ImageField(upload_to="productos",null=True,blank=True)
+    content = models.TextField()
 
     class Meta:
         ordering = ['-timestamp']
 
     def __str__(self):
-        return self.name
-    
-    @property
-    def imageURL(self):
-        try:
-            url = self.image.url
-        except:
-            url = ''
-        return url
+        return f'{self.user.username}: {self.content}'
     
 
 class Relationship(models.Model):
